@@ -7,6 +7,16 @@
 
 public class MergeTwoLinkedLists{
 
+        /*
+         * Here is the mergeLists function that I am creating
+         *
+         * @var nodeA, nodeB --> the heads of the two lists I am working with
+         * @return ListNode --> Need to reurn a ListNode object (head of the new linked list)
+         */
+        public ListNode mergeLists(ListNode nodeA, ListNode nodeB){
+
+        }
+
         public static void main(String args[]){
                 System.out.println("Hello World... my class is now set up to solve my Leetcode problem");
 

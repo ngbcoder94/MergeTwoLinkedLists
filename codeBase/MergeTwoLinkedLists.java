@@ -6,7 +6,7 @@
  */
 
 public class MergeTwoLinkedLists{
-
+        
         /*
          * Here is the mergeLists function that I am creating
          *
@@ -17,6 +17,20 @@ public class MergeTwoLinkedLists{
                 return null;
         }
         
+        /*
+         * Here is my insertStart() function that will insert a node...
+         * ...at the beginning of a list.
+         *
+         *@param tmpHeadPtr: Node of the beginning of the list
+         *@Param tmpIntVal: Value to add to the list
+         */
+        public ListNode insertStart(ListNode tmpHeadPtr, int tmpIntVal){
+                
+                ListNode tmpNodeVar = new ListNode();           //Need to create a new node
+                tmpNodeVar.val = tmpIntVal;                     //Add the new value to the node
+                tmpNodeVar.next = tmpHeadPtr;                   //Link the new node to the one passed in
+                return tmpNodeVar;
+        }
         /*
          * Method that will be used to add a node to the lined list
          *
@@ -53,10 +67,11 @@ public class MergeTwoLinkedLists{
                                 tmpHead = tmpHead.next;
                         }
                 }
+                tmpHead = head;
+                head = llObj.insertStart(tmpHead, 100);
+                //int j = 0;
                 
-                int j = 0;
-                
-                
+                /*
                 for(ListNode var00 = head; var00 != null; var00 = var00.next){
                        System.out.println("Here");
                        if(j==2){
@@ -65,7 +80,7 @@ public class MergeTwoLinkedLists{
                        }
                        j++;
                 } 
-                
+               */ 
                 
                 
 

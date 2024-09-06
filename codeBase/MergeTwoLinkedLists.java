@@ -48,6 +48,27 @@ public class MergeTwoLinkedLists{
                 tmpHeadPtr = tmpHeadPtr.next;                          //Set the head to the next node
         }
 
+        /*
+         * Here is my insertEnd() function that will allow me to add a node to the end of the LL. 
+         *
+         *@param ListNode tmpNode - Head of the LL
+         *@param int valVar - value to be added to the new node
+         */
+        public void insertEnd(ListNode tmpNode, int valVar){
+
+                //Need to get to the end of the LL
+                for(ListNode tmp = tmpNode; tmp != null; tmp = tmp.next){
+                        //Need to check and see if we are at the end of the list
+                        if(tmp.next == null){ 
+                                ListNode node = new ListNode();      //Create a new node
+                                node.val = valVar;                   //Add the new val to the node
+                                node.next = null;                    //Update the pointer to null (end of LL)
+                                tmp.next = node;                     //Update the last node in the LL to the newly created last node
+                                tmp = tmp.next;                      //Move the ptr to the next, newly added node.
+                        }
+                }
+        }
+
         public static void main(String args[]){
                 //System.out.println("Hello World... my class is now set up to solve my Leetcode problem");
                 
@@ -68,7 +89,7 @@ public class MergeTwoLinkedLists{
                         }
                 }
                 tmpHead = head;
-                head = llObj.insertStart(tmpHead, 100);
+                llObj.insertEnd(tmpHead, 100);
                 //int j = 0;
                 
                 /*

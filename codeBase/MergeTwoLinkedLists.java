@@ -129,19 +129,19 @@ public class MergeTwoLinkedLists{
                         }
                 }
                 tmpHead = head;
-                llObj.insertEnd(tmpHead, 100);
-                //int j = 0;
+                //llObj.insertEnd(tmpHead, 100);
+                int j = 0;
                 
-                /*
-                for(ListNode var00 = head; var00 != null; var00 = var00.next){
+                
+                for(ListNode var00 = tmpHead; var00 != null; var00 = var00.next){
                        System.out.println("Here");
                        if(j==2){
                                 System.out.println(var00.val);
-                                llObj.insert(var00, 0);
+                                llObj.insertBefore(head, var00, 1000);
                        }
                        j++;
                 } 
-               */ 
+                
                 
                 
 

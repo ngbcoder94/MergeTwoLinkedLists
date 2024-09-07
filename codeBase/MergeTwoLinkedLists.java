@@ -24,6 +24,34 @@ public class MergeTwoLinkedLists{
                 if(nodeB == null){
                         return nodeA;       //Just return the other list
                 }
+
+                //Start with a temp node to simplify edge cases
+                ListNode tmpNode = new ListNode();       //Create a new tmp node 
+                ListNode current = tmpNode;              //Set current correctly
+                
+                //Now I need to traverse the lists
+                while(nodeA != null && nodeB != null){
+                        //Check if A <= B
+                        if(nodeA.val <= nodeB.val){
+                                current.next = nodeA;     //Set the current's next
+                                nodeA = nodeA.next;       //Update nodeA to the next
+                        }
+                        else{
+                                current.next = nodeB;     //Update current's next
+                                nodeB = nodeB.next;       //Update nodeB's next  
+                        }
+                        current = current.next;           //Update current's next
+                }
+
+                //Attach the remaining nodes from either nodeA/nodeB
+                if(nodeA != null){
+                        current.next = nodeA;       //Update the current correctly
+                }
+                else{
+                        current.next = nodeB;       //Or, update to nodeB
+                }
+
+                return tmpNode.next;    //Return the node starting after tmpNode
         }
         
         /*
@@ -120,7 +148,7 @@ public class MergeTwoLinkedLists{
 
         public static void main(String args[]){
                 //System.out.println("Hello World... my class is now set up to solve my Leetcode problem");
-                
+                /*
                 MergeTwoLinkedLists llObj = new MergeTwoLinkedLists();
 
                 ListNode head = new ListNode();
@@ -158,6 +186,18 @@ public class MergeTwoLinkedLists{
                         System.out.printf("(%d)-->", var.val);
                 }
                 System.out.println("||");            
+                */
 
+                ListNode list1 = new ListNode(1, new ListNode(2, new ListNode(4)));
+                ListNode list2 = new ListNode(1, new ListNode(3, new ListNode(4)));
+
+                MergeTwoLinkedLists obj = new MergeTwoLinkedLists();
+                ListNode mergedList = obj.mergeLists(list1, list2);
+
+                while (mergedList != null) {
+                        System.out.printf("(%d) --> ", mergedList.val);
+                        mergedList = mergedList.next;
+                }
+                System.out.println("||");
         }
 }

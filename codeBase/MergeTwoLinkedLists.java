@@ -14,7 +14,16 @@ public class MergeTwoLinkedLists{
          * @return ListNode: Need to reurn a ListNode object (head of the new linked list)
          */
         public ListNode mergeLists(ListNode nodeA, ListNode nodeB){
-                return null;
+                
+                //Nedd to check a few things... base case when I have an empty list
+                if(nodeA == null){
+                        return nodeB;       //Just return the other list
+                }
+
+                //What about if listB is null?
+                if(nodeB == null){
+                        return nodeA;       //Just return the other list
+                }
         }
         
         /*

@@ -18,6 +18,8 @@ public class MergeTwoLinkedLists{
         }
         
         /*
+         * This will be my 
+        /*
          * Here is my insertStart() function that will insert a node...
          * ...at the beginning of a list.
          *
@@ -30,6 +32,44 @@ public class MergeTwoLinkedLists{
                 tmpNodeVar.val = tmpIntVal;                     //Add the new value to the node
                 tmpNodeVar.next = tmpHeadPtr;                   //Link the new node to the one passed in
                 return tmpNodeVar;
+        }
+
+        /*
+         * This will be my insertBefore() function
+         *
+         * @param - ListNode list1, list2 - two lists passed in.
+         * @param - head - start of the original start of the list
+         * @param - newVal - new value to be added. 
+         */
+        public ListNode insertBefore(ListNode head, ListNode targetNode, int newVal){
+                
+                //Need to check if the list is an empty list
+                if(head == null){
+                        return new ListNode(newVal);        //Add in the new node
+                }
+
+                //Check if I have found the targetNode
+                if(head == targetNode){
+                        return insertStart(head, newVal);   //Add in the target node
+                }
+
+                //Now I need to traverse the list to find the node just before targetNode
+                ListNode prev = null;           //Set the previous. 
+                ListNode current = head;        //Set the current to the head
+                
+                while(current != null && current != targetNode){
+                        prev = current;              //Update prev to the current prior to moving the ptr
+                        current = current.next; 
+                }
+
+                //If we find the target node, insert the new node before it
+                if(current == targetNode){
+                        ListNode newNode = new ListNode(newVal);        //Create a new node
+                        prev.next = newNode;                            //Set prev to the new node
+                        newNode.next = current;                         //Set the new node's next to the target node
+                }
+
+                return head;       //Return the head of the list
         }
         /*
          * Method that will be used to add a node to the lined list
